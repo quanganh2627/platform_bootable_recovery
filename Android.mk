@@ -72,6 +72,11 @@ else
   LOCAL_STATIC_LIBRARIES += $(TARGET_RECOVERY_UI_LIB)
 endif
 
+#libpixelflinger_static for x86 is using encoder under hardware/intel/apache-harmony
+ifeq ($(TARGET_ARCH),x86)
+LOCAL_STATIC_LIBRARIES += libenc
+endif
+
 LOCAL_C_INCLUDES += system/extras/ext4_utils
 
 include $(BUILD_EXECUTABLE)
